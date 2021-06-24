@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas</title>
+</head>
+
+<body>
+    <div>
+        <h1>New Dojo</h1>
+        <form action="/dojos/create">
+            <p>
+                Name:
+                <input type="text" name="name" id="">
+            </p>
+            
+        </form>
+        <a href="/dojos/create">Create</a>
+    </div>
+    <div>
+        <h1>All Dojos</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+            {% for dojo in all_dojos %}
+            <tr>
+                <td>{{ dojo.id }}</td>
+                <td><a href="/dojo/{{ dojo.id }}">{{ dojo.name }}</a></td>
+                <td>{{ dojo.name }}</td>
+                <td>{{ dojo.created_at }}</td>
+                <td>{{ dojo.updated_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/ninjas/new">Add a ninja</a>
+    </div>
+</body>
+
+</html>
